@@ -1,8 +1,90 @@
+/**
+* Colors borrowed from Tailwind:
+* https://tailwindcss.com/docs/customizing-colors/#default-color-palette
+*/
+:root {
+  --blue-300: #90CDF4;
+  --green-300: #9AE6B4;
+  --red-300: #FEB2B2;
+  --yellow-300: #FAF089;
+
+  --gray-400: #CBD5E0;
+}
+
 body {
   font-family: monospace;
   padding: 1rem;
 }
 
-button {
+.toggle {
   margin: 0 1rem;
+}
+
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+th,
+td {
+  padding: .2rem;
+}
+th:first-child,
+td:first-child {
+  border-right: 1px solid var(--gray-400);
+}
+tr:last-child td {
+  border-bottom: 0;
+}
+td {
+  border-top: 1px solid var(--gray-400);
+}
+td:empty {
+  border-top: 0;
+}
+.routes {
+  margin-top: 1rem;
+}
+.routes label {
+  cursor: pointer;
+}
+.routes input {
+  cursor: pointer;
+  margin-right: .5rem;
+}
+.routes .stop {
+  padding: .1rem .2rem;
+  position: relative;
+}
+.routes .stop::after {
+  bottom: 0;
+  content: '';
+  left: 50%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+.routes .stop:first-of-type::after {
+  border-radius: .2rem 0 0 .2rem;
+  left: 0;
+  width: 150%;
+}
+.routes .stop:nth-last-of-type(2)::after {
+  border-radius: 0 .2rem .2rem 0;
+  width: 150%;
+}
+.routes .stop:first-of-type:nth-last-of-type(2)::after {
+  border-radius: .2rem;
+  width: 200%;
+}
+.routes .stop.blue::after {
+  background: var(--blue-300);
+}
+.routes .stop.green::after {
+  background: var(--green-300);
+}
+.routes .stop.red::after {
+  background: var(--red-300);
+}
+.routes .stop.yellow::after {
+  background: var(--yellow-300);
 }

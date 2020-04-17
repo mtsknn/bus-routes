@@ -27,7 +27,7 @@ const Select = {
 const Toggle = {
   view() {
     return m(
-      'button',
+      'button.toggle',
       {
         onclick() {
           const [from, to] = [state.from(), state.to()]
