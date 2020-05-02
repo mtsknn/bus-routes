@@ -30,18 +30,22 @@ function continueRoute(route, destination) {
   const previousBus = route.buses[route.buses.length - 1]
   const previousStop = route.stops[route.stops.length - 1]
 
-  return roads
-    .filter(
-      (road) => road.from === previousStop && !route.stops.includes(road.to)
-    )
-    .map((road) => ({
-      buses: route.buses.concat(road.bus),
-      busLines: route.busLines + (previousBus !== road.bus ? 1 : 0),
-      duration: route.duration + road.duration,
-      roads: route.roads.concat(road),
-      stops: route.stops.concat(road.to),
-    }))
-    .flatMap((newRoute) => continueRoute(newRoute, destination))
+  return (
+    roads
+      .filter((road) => road.from === previousStop)
+
+      // Prevent circular routes
+      .filter((road) => !route.stops.includes(road.to))
+
+      .map((road) => ({
+        buses: route.buses.concat(road.bus),
+        busLines: route.busLines + (previousBus !== road.bus ? 1 : 0),
+        duration: route.duration + road.duration,
+        roads: route.roads.concat(road),
+        stops: route.stops.concat(road.to),
+      }))
+      .flatMap((newRoute) => continueRoute(newRoute, destination))
+  )
 }
 
 export default getRoutes
