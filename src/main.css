@@ -16,8 +16,17 @@ body {
   padding: 1rem;
 }
 
-.toggle {
-  margin: 0 1rem;
+select {
+  display: table-row;
+  height: 1.5rem;
+  overflow: hidden;
+}
+option {
+  display: table-cell;
+  height: 1.5rem;
+  text-align: center;
+  vertical-align: middle;
+  width: 1rem;
 }
 
 .text-left { text-align: left; }

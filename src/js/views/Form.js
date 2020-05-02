@@ -4,7 +4,7 @@ import state from '../state.js'
 const Select = {
   view({ attrs }) {
     return m(
-      'select',
+      'select[size=2]',
       {
         onchange(e) {
           state[attrs.name](data.stops[e.target.selectedIndex])
@@ -15,6 +15,7 @@ const Select = {
           'option',
           {
             disabled: attrs.reserved === stop,
+            key: stop,
             selected: state[attrs.name]() === stop,
           },
           stop
@@ -45,8 +46,10 @@ export default {
     return [
       'From: ',
       m(Select, { name: 'from', reserved: state.to() }),
+      m('br'),
       m(Toggle),
-      'To: ',
+      m('br'),
+      m.trust('&nbsp;&nbsp;To: '),
       m(Select, { name: 'to', reserved: state.from() }),
     ]
   },
