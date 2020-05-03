@@ -1,10 +1,13 @@
 import data from './data.js'
 
 const roads = data.roads
-  .flatMap((road) => [{ ...road }, { ...road, from: road.to, to: road.from }])
   .flatMap((road) =>
     getBusesBetween(road.from, road.to).map((bus) => ({ ...road, bus }))
   )
+  .flatMap((road) => [
+    { ...road, backwards: false },
+    { ...road, backwards: true, from: road.to, to: road.from },
+  ])
 
 function getBusesBetween(a, b) {
   return Object.entries(data.busLines)
@@ -12,7 +15,7 @@ function getBusesBetween(a, b) {
     .map(([color]) => color)
 }
 
-function getRoutes(from, to) {
+export default function getRoutes(from, to) {
   const route = {
     buses: [],
     busLines: 0,
@@ -47,5 +50,3 @@ function continueRoute(route, destination) {
       .flatMap((newRoute) => continueRoute(newRoute, destination))
   )
 }
-
-export default getRoutes

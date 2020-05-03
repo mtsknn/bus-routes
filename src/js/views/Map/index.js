@@ -6,13 +6,28 @@ import Stop from './Stop.js'
 export default {
   view() {
     return m('svg.map', { viewBox }, [
-      data.roads.map((road) => {
-        const { from, to, duration } = road
-        const { x: x1, y: y1 } = stopLocations[from]
-        const { x: x2, y: y2 } = stopLocations[to]
+      m('defs', [
+        m('polyline#arrow-head', {
+          fill: 'transparent',
+          points: '0,4 2,2 0,0',
+        }),
+        Object.keys(data.busLines).map((color) =>
+          m(
+            'marker',
+            {
+              id: `arrow-head-${color}`,
+              markerWidth: '2',
+              markerHeight: '4',
+              orient: 'auto',
+              refX: 2,
+              refY: 2,
+            },
+            m('use[href="#arrow-head"]')
+          )
+        ),
+      ]),
 
-        return m(Road, { key: from + to, duration, x1, x2, y1, y2 })
-      }),
+      data.roads.map((road) => m(Road, { key: road.from + road.to, road })),
 
       Object.entries(stopLocations).map(([letter, { x, y }]) =>
         m(Stop, { key: letter, letter, x, y })

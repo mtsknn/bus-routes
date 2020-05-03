@@ -4,9 +4,16 @@
 */
 :root {
   --blue-300: #90CDF4;
+  --blue-500: #4299E1;
+
   --green-300: #9AE6B4;
+  --green-500: #48BB78;
+
   --red-300: #FEB2B2;
+  --red-500: #F56565;
+
   --yellow-300: #FAF089;
+  --yellow-500: #ECC94B;
 
   --gray-100: #F7FAFC;
   --gray-200: #EDF2F7;
@@ -117,23 +124,19 @@ td:empty {
   border-radius: .2rem;
   width: 200%;
 }
-.routes .stop.blue::after {
-  background: var(--blue-300);
-}
-.routes .stop.green::after {
-  background: var(--green-300);
-}
-.routes .stop.red::after {
-  background: var(--red-300);
-}
-.routes .stop.yellow::after {
-  background: var(--yellow-300);
-}
+.routes .stop.blue::after   { background: var(--blue-300); }
+.routes .stop.green::after  { background: var(--green-300); }
+.routes .stop.red::after    { background: var(--red-300); }
+.routes .stop.yellow::after { background: var(--yellow-300); }
 
 .map {
   background: var(--gray-100);
   margin-left: 1rem;
 }
+.map #arrow-head-blue   use { stroke: var(--blue-500); }
+.map #arrow-head-green  use { stroke: var(--green-500); }
+.map #arrow-head-red    use { stroke: var(--red-500); }
+.map #arrow-head-yellow use { stroke: var(--yellow-500); }
 .map text {
   fill: var(--gray-400);
   text-anchor: middle;
@@ -152,6 +155,11 @@ td:empty {
   stroke-opacity: 0.8;
   stroke-width: 0.3rem;
 }
+.map .road.blue   line { stroke: var(--blue-500); }
+.map .road.green  line { stroke: var(--green-500); }
+.map .road.red    line { stroke: var(--red-500); }
+.map .road.yellow line { stroke: var(--yellow-500); }
+.map .road.active text { fill: var(--gray-500); }
 .map .stop circle {
   fill: white;
   stroke: var(--gray-300);
