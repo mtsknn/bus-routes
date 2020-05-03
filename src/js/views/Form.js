@@ -9,6 +9,17 @@ const Select = {
         onchange(e) {
           state[attrs.name](data.stops[e.target.selectedIndex])
         },
+
+        // Usually it would be enough to use just `onchange`, but because of the
+        // rapidly firing timeouts in `Routes.js`, `onchange` is not always
+        // triggered when using the mouse (possibly because the UI is busy
+        // updating). Using both events might cause other issues, but you know,
+        // "99 little bugs in the code" et cetera. 🤷‍♂️ Funnily, the `onchange`
+        // handler in `Routes.js` seems to work well, so maybe the fundamental
+        // issue is in using `<select>`
+        onclick(e) {
+          state[attrs.name](data.stops[e.target.index])
+        },
       },
       data.stops.map((stop) =>
         m(
