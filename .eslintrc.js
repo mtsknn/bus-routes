@@ -7,6 +7,7 @@ module.exports = {
     // Mithril
     m: 'readonly',
   },
+  parser: 'babel-eslint',
   plugins: ['prettier', 'simple-import-sort'],
   rules: {
     // This is needed because of <script type="module">
