@@ -8,6 +8,8 @@ JavaScript. In short:
 > route must show what bus lines to use. Changing buses doesn't incur any
 > additional delays.
 
+See `src/js/data.js` for the data that was to be used in the challenge.
+
 Instead of finding just the fastest route, I wanted to find all of them and let
 the user choose any one of them. Who doesn't like scenic routes?
 
@@ -28,11 +30,13 @@ Or run by yourself:
   (i.e. works on my machine&trade;)~~. &ndash; I used to display the routes
   incrementally in chunks of ten, but then I noticed that the feature was very
   buggy, so I removed it. Now the app is not that fast anymore. :joy: Anyway:
-  generating the routes is fast, but updating the UI is not.
+  generating the routes is fast, but updating the UI is not
 - Not optimized for production because I didn't want to mess with Webpack
   configurations once again (actually, I would probably have chosen Parcel)
 - Not optimized for narrow screens because I was lazy. Also, the CSS is somewhat
-  messy (again because I was lazy)
+  messy (again because I was lazy). Another also: Firefox doesn't seem to
+  respect the `width` value of `option`s, so the layout is a bit broken, but I
+  noticed this too late
 - Not made accessible, e.g. for screen reader users (sorry!). I do care about
   accessibility, but I was&mdash;well, you know
 - The map layout is designed by hand since the map is just a bonus, so adding or
