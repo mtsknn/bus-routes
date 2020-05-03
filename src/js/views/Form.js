@@ -44,13 +44,15 @@ const Toggle = {
 export default {
   view() {
     return [
-      'From: ',
-      m(Select, { name: 'from', reserved: state.to() }),
-      m('br'),
+      m('label.flex.flex-col', [
+        'From:',
+        m(Select, { name: 'from', reserved: state.to() }),
+      ]),
       m(Toggle),
-      m('br'),
-      m.trust('&nbsp;&nbsp;To: '),
-      m(Select, { name: 'to', reserved: state.from() }),
+      m('label.flex.flex-col', [
+        'To:',
+        m(Select, { name: 'to', reserved: state.from() }),
+      ]),
     ]
   },
 }

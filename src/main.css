@@ -8,12 +8,43 @@
   --red-300: #FEB2B2;
   --yellow-300: #FAF089;
 
+  --gray-100: #F7FAFC;
+  --gray-300: #E2E8F0;
   --gray-400: #CBD5E0;
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Utilities */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-grow { flex-grow: 1; }
+
+.mt { margin-top: 1rem; }
+
+.overflow-x-auto { overflow-x: auto; }
+
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+/* Utilities end */
 
 body {
   font-family: monospace;
   padding: 1rem;
+}
+
+#app {
+  height: calc(100vh - 2rem);
+  display: flex;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
 }
 
 select {
@@ -26,11 +57,12 @@ option {
   height: 1.5rem;
   text-align: center;
   vertical-align: middle;
-  width: 1rem;
+  width: 1.2rem;
 }
 
-.text-left { text-align: left; }
-.text-right { text-align: right; }
+.toggle {
+  margin: 0.5rem 0;
+}
 
 th,
 td {
@@ -48,9 +80,6 @@ td {
 }
 td:empty {
   border-top: 0;
-}
-.routes {
-  margin-top: 1rem;
 }
 .routes label {
   cursor: pointer;
@@ -96,4 +125,32 @@ td:empty {
 }
 .routes .stop.yellow::after {
   background: var(--yellow-300);
+}
+
+.map {
+  background: var(--gray-100);
+  margin-left: 1rem;
+}
+.map text {
+  fill: var(--gray-400);
+  text-anchor: middle;
+}
+.map .road line {
+  stroke: var(--gray-300);
+  stroke-width: 0.25rem;
+}
+.map .road text {
+  font-weight: bold;
+
+  /* Paint the stroke first; otherwise the fill will be underneath it */
+  paint-order: stroke;
+
+  stroke: var(--gray-100);
+  stroke-opacity: 0.8;
+  stroke-width: 0.3rem;
+}
+.map .stop circle {
+  fill: white;
+  stroke: var(--gray-300);
+  stroke-width: 0.2rem;
 }
