@@ -24,6 +24,8 @@ Or run by yourself:
 3. ???
 4. PROFIT!!
 
+(A web browser should automatically open after the second step.)
+
 ## Anti-features
 
 - Not optimized for performance ~~because the app already feels fast enough
