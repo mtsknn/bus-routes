@@ -26,26 +26,6 @@ Or run by yourself:
 
 (A web browser should automatically open after the second step.)
 
-## Anti-features
-
-- Not optimized for performance ~~because the app already feels fast enough
-  (i.e. works on my machine&trade;)~~. &ndash; I used to display the routes
-  incrementally in chunks of ten, but then I noticed that the feature was very
-  buggy, so I removed it. Now the app is not that fast anymore. :joy: Anyway:
-  generating the routes is fast, but updating the UI is not
-- Not optimized for production because I didn't want to mess with Webpack
-  configurations once again (actually, I would probably have chosen Parcel)
-- Not optimized for narrow screens because I was lazy. Also, the CSS is somewhat
-  messy (again because I was lazy). Another also: Firefox doesn't seem to
-  respect the `width` value of `option`s, so the layout is a bit broken, but I
-  noticed this too late
-- Not made accessible, e.g. for screen reader users (sorry!). I do care about
-  accessibility, but I was&mdash;well, you know
-- The map layout is designed by hand since the map is just a bonus, so adding or
-  removing stops or roads would most probably break the layout. Maybe generating
-  a nice layout automatically could be a topic for another coding challenge?
-  :wink:
-
 ## How the routes are calculated
 
 I.e. the idea behind `src/js/getRoutes.js`.
@@ -240,7 +220,7 @@ There's again quite a lot of repetition and redundancy, but after all
 iterations, each array item contains all necessary details of a single route so
 that it's easy to display the list of routes and to update the map.
 
-## Dependencies
+## Dependencies / How the UI is built
 
 Apart from [normalize.css](https://github.com/necolas/normalize.css) and the dev
 dependencies, there's only one dependency: [Mithril.js](https://mithril.js.org/)
@@ -307,6 +287,26 @@ It's also possible to trigger a global redraw using `m.redraw()`.
 ### A small and stable API
 
 No need to learn hooks or some other hot stuff every once in a while. :innocent:
+
+## Anti-features
+
+- Not optimized for performance ~~because the app already feels fast enough
+  (i.e. works on my machine&trade;)~~. &ndash; I used to display the routes
+  incrementally in chunks of ten, but then I noticed that the feature was very
+  buggy, so I removed it. Now the app is not that fast anymore. :joy: Anyway:
+  generating the routes is fast, but updating the UI is not
+- Not optimized for production because I didn't want to mess with Webpack
+  configurations once again (actually, I would probably have chosen Parcel)
+- Not optimized for narrow screens because I was lazy. Also, the CSS is somewhat
+  messy (again because I was lazy). Another also: Firefox doesn't seem to
+  respect the `width` value of `option`s, so the layout is a bit broken, but I
+  noticed this too late
+- Not made accessible, e.g. for screen reader users (sorry!). I do care about
+  accessibility, but I was&mdash;well, you know
+- The map layout is designed by hand since the map is just a bonus, so adding or
+  removing stops or roads would most probably break the layout. Maybe generating
+  a nice layout automatically could be a topic for another coding challenge?
+  :wink:
 
 ## What I learned
 
