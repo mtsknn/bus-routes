@@ -21,4 +21,19 @@ const routes = m.stream.lift(
   to
 )
 
-export default Object.freeze({ from, to, routes })
+// Reset the index to zero when the "from" or "top" stop is changed
+const selectedRouteIndex = m.stream.lift(() => 0, from, to)
+
+const selectedRoute = m.stream.lift(
+  (_routes, index) => _routes[index],
+  routes,
+  selectedRouteIndex
+)
+
+export default Object.freeze({
+  from,
+  to,
+  routes,
+  selectedRouteIndex,
+  selectedRoute,
+})

@@ -9,8 +9,11 @@
   --yellow-300: #FAF089;
 
   --gray-100: #F7FAFC;
+  --gray-200: #EDF2F7;
   --gray-300: #E2E8F0;
   --gray-400: #CBD5E0;
+  --gray-500: #A0AEC0;
+  --gray-700: #4A5568;
 }
 
 *,
@@ -153,4 +156,15 @@ td:empty {
   fill: white;
   stroke: var(--gray-300);
   stroke-width: 0.2rem;
+}
+.map .stop.active circle {
+  fill: var(--gray-200);
+  stroke: var(--gray-500);
+}
+.map .stop.active text {
+  fill: var(--gray-700);
+  font-weight: bold;
+}
+.map .stop.endpoint circle {
+  stroke: var(--gray-700);
 }
