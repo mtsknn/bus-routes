@@ -7,7 +7,9 @@ const Select = {
       'select[size=2]',
       {
         onchange(e) {
-          state[attrs.name](data.stops[e.target.selectedIndex])
+          if (e.target.selectedIndex) {
+            state[attrs.name](data.stops[e.target.selectedIndex])
+          }
         },
 
         // Usually it would be enough to use just `onchange`, but because of the
@@ -18,7 +20,9 @@ const Select = {
         // handler in `Routes.js` seems to work well, so maybe the fundamental
         // issue is in using `<select>`
         onclick(e) {
-          state[attrs.name](data.stops[e.target.index])
+          if (e.target.index) {
+            state[attrs.name](data.stops[e.target.index])
+          }
         },
       },
       data.stops.map((stop) =>
