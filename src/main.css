@@ -43,13 +43,15 @@
 /* Utilities end */
 
 body {
-  font-family: monospace;
+  font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
   padding: 1rem;
 }
 
 #app {
   height: calc(100vh - 2rem);
   display: flex;
+  margin: 0 auto;
+  max-width: 1500px;
 }
 
 .column {
