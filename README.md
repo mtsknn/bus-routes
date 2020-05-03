@@ -13,6 +13,10 @@ the user choose any one of them. Who doesn't like scenic routes?
 
 ## How to run the app
 
+Try here: <https://mtsknn.github.io/bus-routes/src/>
+
+Or run by yourself:
+
 1. `npm i`
 2. `npm start`
 3. ???
